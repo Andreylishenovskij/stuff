@@ -1,8 +1,8 @@
 #include "ant.h"
 #include <math.h>
-#define Q 1.000
-#define ALPHA 1.000
-#define BETA 1.000
+#define Q 1.000 // stands for feromone added to a road after it's walked through
+#define ALPHA 1.000 // stands for correlation between distance between cities and chance of going from one to another
+#define BETA 1.000 // stands for correlation between feromone between cities and chance of going from one to another
 ant::ant(city *City)
 {
     current = City;
@@ -83,9 +83,16 @@ void ant::add_visit()
 {
     this->cities_visited.push_back(current);
 }
-int ant::get_distance()
+unsigned ant::get_distance()
 {
     return distance;
 }
-            
+void ant::print_route()
+{
+    for(road *r:roads_visited)
+    {
+        std::cout<<r->get_length()<<' ';
+    }
+    std::cout<<std::endl;
+}
 

@@ -1,5 +1,5 @@
 #include "road.h"
-#define q 0.2
+#define q 0.2 // feromone evaporation coefficient
 #define FEROMONE_DEFAULT 0.200
             road::road(city* x, city * y,int z)
             {
@@ -17,7 +17,7 @@
             {
                 return to;
             }
-            int road::get_length()
+            unsigned road::get_length()
             {
                 return length;
             }
